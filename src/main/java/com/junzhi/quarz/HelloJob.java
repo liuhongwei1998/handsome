@@ -14,5 +14,9 @@ public class HelloJob implements Job {
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     System.out.println("Current Exec Time is : " + sdf.format(date));
     System.out.println("junzhi test quartz");
+    for(int i =  0 ; i < 10 ; i ++){
+      System.out.println();
+
+    }
   }
 }

@@ -8,11 +8,13 @@ import java.util.Date;
 
 public class HelloScheduler {
   public static void main(String[] args) {
-    //
+    // 绑定job detail
     JobDetail jobDetail =
         JobBuilder.newJob(HelloJob.class).withIdentity("myjob1", "group1").build();
+
     SimpleScheduleBuilder simpleScheduleBuilder =
         SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(5).repeatForever();
+
     SimpleTrigger trigger =
         TriggerBuilder.newTrigger()
             .withIdentity("myTrigger", "group1")
@@ -28,6 +30,10 @@ public class HelloScheduler {
     } catch (SchedulerException e) {
       e.printStackTrace();
     }
+
+
+
+  //  System.out.println("ad");
 
     // Date
     Date date = new Date();
