@@ -18,7 +18,6 @@ public class main02 {
         i++;
       }
     }
-    // tlen = 6 , i = 2
     if (j == tlen) return 0;
     else return tlen - j;
   }
