@@ -1,5 +1,6 @@
 package com.junzhi.dataStructSet;
 
+// 参考 ：https://www.runoob.com/data-structures/union-find-rank.html
 public class UnionFind {
   private int[] rank; // rank[i]表示以i为根的集合所表示的树的层数
   private int[] parent; // parent[i]表示第i个元素所指向的父节点
@@ -19,10 +20,11 @@ public class UnionFind {
 
   // 查找过程，查询元素p所对应的集合编号
   // O（h）复杂度，h为树的高度
+  // 添加路径压缩
   private int find(int p) {
     assert (p >= 0 && p < count);
-    while (p != parent[p]) p = parent[p];
-    return p;
+    while (p != parent[p]) parent[p] = find(parent[p]);
+    return parent[p];
   }
 
   // 判断p和q是否属于同一个集合
